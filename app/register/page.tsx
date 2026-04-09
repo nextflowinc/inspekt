@@ -4,8 +4,9 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { ArrowLeft, Lock, Eye, EyeOff } from "lucide-react";
 
-// ── SEULEMENT 2 PLANS ──
+// ── SEULEMENT 3 PLANS ──
 const PLANS = [
+  { id: "free",    name: "Gratuit", price: "0$",  priceId: "" },
   { id: "starter", name: "Starter", price: "16$", priceId: "price_starter_id" },
   { id: "pro",     name: "Pro",     price: "32$", priceId: "price_pro_id" },
 ];
@@ -153,7 +154,7 @@ export default function RegisterPage() {
 
             <div className="mt-4 mb-3">
               <label className="text-slate-400 text-xs font-bold uppercase tracking-wider block mb-3">Plan sélectionné :</label>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-3">
                 {PLANS.map((p) => (
                   <button
                     key={p.id}
@@ -161,11 +162,16 @@ export default function RegisterPage() {
                     onClick={() => setPlan(p.id)}
                     className={`py-4 rounded-xl border text-center transition-all relative overflow-hidden flex flex-col items-center justify-center ${plan === p.id ? "bg-cyan-500/10 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.15)]" : "bg-[#020617] border-slate-800 hover:border-slate-700"}`}
                   >
-                    {p.id === 'pro' && (
-                      <div className="absolute top-0 right-0 bg-cyan-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-bl-lg uppercase">
-                        PRO
-                      </div>
-                    )}
+                  {p.id === 'pro' && (
+                    <div className="absolute top-0 right-0 bg-cyan-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-bl-lg uppercase">
+                      PRO
+                    </div>
+                  )}
+                  {p.id === 'free' && (
+  <div className="absolute top-0 right-0 bg-slate-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-lg uppercase">
+    3 scans
+  </div>
+)}
                     <div className={`text-xs font-bold mb-1 ${plan === p.id ? 'text-white' : 'text-slate-400'}`}>{p.name}</div>
                     <div className={`text-2xl font-black ${plan === p.id ? 'text-cyan-400' : 'text-white'}`}>{p.price}</div>
                   </button>

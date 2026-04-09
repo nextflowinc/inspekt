@@ -7,6 +7,7 @@ import {
   Monitor, Cpu, HardDrive, Server, Code, Database, Globe, Wifi, Check // <- Check est bien là
 } from "lucide-react";
 
+const [lang, setLang] = useState<'fr'|'en'>('fr');
 const NAV_LINKS = [
   { label: "Fonctionnalités", href: "#features" },
   { label: "Tarifs", href: "#pricing" },
@@ -87,15 +88,23 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <span className="text-white font-black text-xl tracking-tight">Inspe<span className="text-cyan-400">k</span>t</span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
+<div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((l) => (
               <a key={l.label} href={l.href} className="text-slate-400 hover:text-white text-sm font-medium transition-colors">{l.label}</a>
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="hidden md:block text-slate-400 hover:text-white text-sm font-medium transition-colors">Connexion</Link>
+            <button
+              onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}
+              className="px-3 py-1.5 bg-slate-800 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all"
+            >
+              {lang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR'}
+            </button>
+            <Link href="/login" className="hidden md:block text-slate-400 hover:text-white text-sm font-medium transition-colors">
+              {lang === 'fr' ? 'Connexion' : 'Login'}
+            </Link>
             <Link href="/register" className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-lg text-sm font-bold transition-all shadow-lg shadow-cyan-900/30">
-              Démarrer gratuitement
+              {lang === 'fr' ? 'Démarrer gratuitement' : 'Get started free'}
             </Link>
           </div>
         </div>
