@@ -7,7 +7,7 @@ import {
   Monitor, Cpu, HardDrive, Server, Code, Database, Globe, Wifi, Check // <- Check est bien là
 } from "lucide-react";
 
-const [lang, setLang] = useState<'fr'|'en'>('fr');
+
 const NAV_LINKS = [
   { label: "Fonctionnalités", href: "#features" },
   { label: "Tarifs", href: "#pricing" },
@@ -67,6 +67,7 @@ const REQUIREMENTS = [
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [lang, setLang] = useState<'fr'|'en'>('fr'); 
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
