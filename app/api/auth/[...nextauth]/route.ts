@@ -65,6 +65,18 @@ const handler = NextAuth({
     error:   "/login",
   },
   callbacks: {
+    
+  async signIn({ user, account }) {
+    if (account?.provider === 'google' || account?.provider === 'azure-ad') {
+      try {
+        await prisma.user.update({
+          where: { email: user.email! },
+          data: { active: true, plan: 'free' }
+        });
+      } catch {}
+    }
+    return true;
+  },
     async jwt({ token, user }) {
       if (user) {
         token.id   = user.id;
