@@ -230,7 +230,7 @@ export default function LandingPage() {
               <p className="text-slate-400 mb-8 max-w-lg mx-auto">
                 {fr ? 'Téléchargez Inspekt et commencez votre premier audit en moins de 5 minutes. Redis, Chromium et le moteur d\'analyse sont inclus.' : 'Download Inspekt and start your first audit in less than 5 minutes. Redis, Chromium and the analysis engine are included.'}
               </p>
-              <a href="/Inspekt-Setup-1.0.0.exe" download className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-xl font-bold text-lg transition-all shadow-[0_0_30px_rgba(6,182,212,0.3)] inline-flex items-center gap-3">
+              <a href="https://github.com/nextflowinc/inspekt/releases/download/v1.0.0/Inspekt.Setup.1.0.0.exe" download className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-xl font-bold text-lg transition-all shadow-[0_0_30px_rgba(6,182,212,0.3)] inline-flex items-center gap-3">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 Windows 64-bit — v1.0.0
               </a>
