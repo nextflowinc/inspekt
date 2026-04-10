@@ -14,11 +14,12 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+  const res = await signIn("credentials", {
+    email,
+    password,
+    redirect: true,
+    callbackUrl: "/dashboard",
+  });
     if (res?.error) {
       setError("Email ou mot de passe incorrect.");
       setLoading(false);
